@@ -4,15 +4,16 @@
 #
 Sanction.configure do |config|
   # Define your principals
-  # config.principals = [Person]
+  config.principals = [User]
 
   # Define your permissionables
-  # config.permissionables = [Person, Magazine]
+  config.permissionables = [User, Magazine]
 
   # Define your roles
-  # config.role :reader, Person => Magazine, :having => [:can_read]
-  # config.role :editor, Person => Magazine, :having => [:can_edit],  :includes => [:reader]
-  # config.role :writer, Person => Magazine, :having => [:can_write], :includes => [:reader]
-  # config.role :owner,  Person => Magazine, :includes => [:editor, :writer]
-  # config.role :boss,   Person => Person
+  config.role :reader, User => Magazine, :having => [:can_read]
+  config.role :editor, User => Magazine, :having => [:can_edit],  :includes => [:reader]
+  config.role :writer, User => Magazine, :having => [:can_write], :includes => [:reader]
+  config.role :owner,  User => Magazine, :includes => [:editor, :writer]
+  config.role :boss,   User => User
+  config.role :super_user, User => :global
 end
