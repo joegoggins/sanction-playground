@@ -5,9 +5,17 @@ of how sanction + sanction-ui work in practice
 
 
 = Setup
-Run this rake task to create a db and migrate it load fixtures and run tests
-rake app:setup
+# Get it
+git clone git@github.com:joegoggins/sanction-playground.git
+cd sanction-playground
+git submodule update --init
 
-Fire up a server
+# Bomb and Rebuild databases
+rake app:setup # Assumes MySQL with root user see database.yml to details
 
-Hit it in a browser 
+# Fire up a server (or use passenger er whatevs)
+script/server
+
+= Develop
+* `rake app:setup` should always be run after git pull, it destroys and rebuilds all db related things
+* `rake app:test` NOT DONE--will invoke all tests in the two plugins
