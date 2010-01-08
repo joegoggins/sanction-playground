@@ -1,21 +1,19 @@
 = Welcome to the Sanction Playground
 A Rails app designed to facilitate development of sanction-ui and sanction rails plugins
-Initially this rails app will be a bit ugly, but potentially could eventually become a nice authoritative reference example
-of how sanction + sanction-ui work in practice
-
+Initially this rails app will be a bit ugly, but potentially could eventually become a nice authoritative reference example of how sanction + sanction-ui work in practice
 
 = Setup
-# Get it
-git clone git@github.com:joegoggins/sanction-playground.git
-cd sanction-playground
-git submodule update --init
+== Get it
+  git clone git@github.com:joegoggins/sanction-playground.git
+  cd sanction-playground
+  git submodule update --init
 
-# Bomb and Rebuild databases
-rake app:setup # Assumes MySQL with root user see database.yml to details
+== Bomb and Rebuild databases
+  rake app:setup # Assumes MySQL with root user see database.yml to details
 
-# Fire up a server (or use passenger er whatevs)
-script/server
+== Fire up a server (or use passenger er whatevs)
+  script/server
 
 = Develop
-* `rake app:setup` should always be run after git pull, it destroys and rebuilds all db related things
-* `rake app:test` NOT DONE--will invoke all tests in the two plugins
+  `rake app:setup` should always be run after git pull, it destroys and rebuilds all db related things
+  `rake app:test` NOT DONE--will invoke all tests in the two plugins
