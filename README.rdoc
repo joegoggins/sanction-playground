@@ -1,0 +1,13 @@
+= Welcome to the Sanction Playground
+A Rails app designed to facilitate development of sanction-ui and sanction rails plugins
+Initially this rails app will be a bit ugly, but potentially could eventually become a nice authoritative reference example
+of how sanction + sanction-ui work in practice
+
+
+= Setup
+Run this rake task to create a db and migrate it load fixtures and run tests
+rake app:setup
+
+Fire up a server
+
+Hit it in a browser 
