@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+wsj:
+  name: Wall Street Journal
 
-two:
-  name: MyString
+tny:
+  name: The New Yorker
+ 
+econ:
+  name: The Economist asf 

@@ -1,7 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+joe:
+  name: $LABEL
 
-two:
-  name: MyString
+matt:
+  name: $LABEL
+
+pete:
+  name: $LABEL
+
+chris:
+  name: $LABEL
+
+kim:
+  name: $LABEL

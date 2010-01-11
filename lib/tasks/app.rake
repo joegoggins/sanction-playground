@@ -5,7 +5,8 @@ namespace :app do
     puts `rake app:drop_all`
     puts `rake db:create:all`
     puts `rake db:migrate`
-    puts `rake db:fixtures:load`
+    puts `rake db:fixtures:load` # loads users and magazines
+    puts `rake app:load_permission_fixtures`
     puts `rake db:test:clone`
   end
   desc "drop all dbs reffed in database.yml without being stupid (and throwing an error)"
@@ -19,5 +20,27 @@ namespace :app do
         #Mysql::Error: Unknown database 'sanction_playground_development'
       end
     end
+  end
+  
+  desc "Load some permissions data"
+  task :load_permission_fixtures => :environment do
+    Sanction::Role.delete_all
+    # joe is a super user
+    @joe = User.find_by_name 'joe'
+    @joe.grant :super_user
+    
+    # matt is the boss of joe
+    @matt = User.find_by_name 'matt'
+    @matt.grant(:boss, @joe)
+    
+    # Matt is a reader of all magazines
+    @matt.grant(:reader, Magazine)
+  
+    # pete is a magazine editor of the wall street journal and the economist
+    @wsj = Magazine.find 126485940
+    @econ = Magazine.find 792893027
+    @pete = User.find_by_name 'pete'
+    @pete.grant(:editor, @wsj)
+    @pete.grant(:editor, @econ)
   end
 end

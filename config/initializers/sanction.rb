@@ -10,10 +10,11 @@ Sanction.configure do |config|
   config.permissionables = [User, Magazine]
 
   # Define your roles
+  config.role :super_user, User => :global
   config.role :reader, User => Magazine, :having => [:can_read]
   config.role :editor, User => Magazine, :having => [:can_edit],  :includes => [:reader]
   config.role :writer, User => Magazine, :having => [:can_write], :includes => [:reader]
   config.role :owner,  User => Magazine, :includes => [:editor, :writer]
-  config.role :boss,   User => User
-  config.role :super_user, User => :global
+  config.role :boss,   User => [Magazine,User]
+
 end
