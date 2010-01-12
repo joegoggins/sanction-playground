@@ -4,7 +4,7 @@
 #
 Sanction.configure do |config|
   # Define your principals
-  config.principals = [User]
+  config.principals = [User, V1::ApiUser, WeirdoUser]
 
   # Define your permissionables
   config.permissionables = [User, Magazine]
@@ -16,5 +16,8 @@ Sanction.configure do |config|
   config.role :writer, User => Magazine, :having => [:can_write], :includes => [:reader]
   config.role :owner,  User => Magazine, :includes => [:editor, :writer]
   config.role :boss,   User => [Magazine,User]
+  config.role :download_statistics, V1::ApiUser => [Magazine, User]
 
+
+  config.role :smoke_crack, WeirdoUser => :global
 end

@@ -1,0 +1,16 @@
+<h1>Editing api_user</h1>
+
+<% form_for(@api_user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @api_user %> |
+<%= link_to 'Back', api_users_path %>

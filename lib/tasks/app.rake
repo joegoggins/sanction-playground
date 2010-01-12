@@ -42,5 +42,16 @@ namespace :app do
     @pete = User.find_by_name 'pete'
     @pete.grant(:editor, @wsj)
     @pete.grant(:editor, @econ)
+    
+    
+    @api_user1 = V1::ApiUser.find_by_name 'api1'
+    # Can get stats for all magazines
+    @api_user1.grant(:download_statistics, Magazine)
+    
+    # Can get stats for Pete
+    @api_user1.grant(:download_statistics, @pete)
+    
+    @weirdo = WeirdoUser.find_by_name 'luis'
+    @weirdo.grant(:smoke_crack)
   end
 end
