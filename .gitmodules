@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/sanction"]
 	path = vendor/plugins/sanction
 	url = git@github.com:joegoggins/sanction.git
+[submodule "vendor/plugins/sanction_ui"]
+	path = vendor/plugins/sanction_ui
+	url = git@github.com:joegoggins/sanction_ui.git
