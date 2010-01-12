@@ -1,5 +1,66 @@
 #ROLES PAGE
 require 'pp'
+
+x= {PrincipalClass => {princ_instance => {:perms_class => bla, instances => [permissionables]}}}
+
+x.keys.each do |principal_class|
+  if x.keys.length > 1
+    puts principal_class.to_s
+  end
+  x[principal_class]
+end
+
+super_user +
+  name
+editor +
+  <princ class name>
+  name ...over... -
+    <perm class name>
+    inst1 -
+    inst2 -
+    inst3 -
+    <perm class name2>
+    inst1 -
+    inst2 -
+    inst3 -
+  <princ class name>
+  name ...over... -
+    <perm class name>
+    inst1 -
+    inst2 -
+    inst3 -
+    <perm class name2>
+    inst1 -
+    inst2 -
+    inst3 -   
+viewer +
+  <princ class naem>
+  name (OVER ALL <perm class name>s)
+  name 
+    <perm class name>
+    inst1
+    inst2
+
+
+r = Renderer.new(@roles, [:role_definition, :principals, :permissionables])
+# Mixes in a bunch functionality into core Sanction objects to
+# make view rendering not suck a pile of balls
+#
+r.load
+
+r.role_definitions.each do |rd|
+  puts rd.to_html
+  rd.roles.each do |role|
+    gd.principals.each do |p|
+      if gd.global?
+        puts p.to_html
+      else
+        
+      end
+    end
+  end
+end
+
 # eager loaded for quick rendering
 @roles = Sanction::Role.find(:all, :include => [:principal, :permissionable], :order => 'name')
 
