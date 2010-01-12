@@ -19,5 +19,5 @@ Sanction.configure do |config|
   config.role :download_statistics, V1::ApiUser => [Magazine, User]
 
 
-  config.role :smoke_crack, WeirdoUser => :global
+  config.role :smoke_crack, [V1::ApiUser, WeirdoUser] => :global
 end

@@ -14,21 +14,19 @@ x.keys.each do |principal_class|
   x[principal_class].
 end
 
+
+
 super_user +
   name
 editor +
-  <princ class name>
-  name ...over... -
-    <perm class name>
+  name <princ class name plural>...over... -
+    inst1 (perm class name)
+    inst2 (perm class name)
+    inst3 (perm class name)
     inst1 -
     inst2 -
     inst3 -
-    <perm class name2>
-    inst1 -
-    inst2 -
-    inst3 -
-  <princ class name>
-  name ...over... -
+  name <princ class name> ...over...
     <perm class name>
     inst1 -
     inst2 -
