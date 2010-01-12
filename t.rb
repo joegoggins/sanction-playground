@@ -1,13 +1,17 @@
 #ROLES PAGE
 require 'pp'
+=begin
+some brainstorming...
+x= {PrincipalClass => [:instances => [pi1,pi2], :permissionables => {PermissionableClass => }]
 
-x= {PrincipalClass => {princ_instance => {:perms_class => bla, instances => [permissionables]}}}
+collect_structure_for_principal_class
+=>
 
 x.keys.each do |principal_class|
   if x.keys.length > 1
     puts principal_class.to_s
   end
-  x[principal_class]
+  x[principal_class].
 end
 
 super_user +
@@ -60,7 +64,7 @@ r.role_definitions.each do |rd|
     end
   end
 end
-
+=end
 # eager loaded for quick rendering
 @roles = Sanction::Role.find(:all, :include => [:principal, :permissionable], :order => 'name')
 
