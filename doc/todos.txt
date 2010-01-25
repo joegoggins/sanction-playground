@@ -1,0 +1,13 @@
+POMODOROS
+
+if you implement a method in your controller called current_user that 
+
+if current_user.can_revoke? :super_user
+if current_user.can_revoke? :super_user
+
+* links workn 1
+* form basics working 2
+* form jquery simple stuff
+
+DISTRACTIONS:
+* mighty mouse apps from kyle

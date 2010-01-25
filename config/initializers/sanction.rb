@@ -10,7 +10,9 @@ Sanction.configure do |config|
   config.permissionables = [User, Magazine]
 
   # Define your roles
-  config.role :super_user, User => :global
+  # Note: :can_view_roles? is a sanction_ui permission
+  #
+  config.role :super_user, User => :global, :having => [:can_view_roles, :can_TODO_sanction_ui]
   config.role :reader, User => Magazine, :having => [:can_read]
   config.role :editor, User => Magazine, :having => [:can_edit],  :includes => [:reader]
   config.role :writer, User => Magazine, :having => [:can_write], :includes => [:reader]

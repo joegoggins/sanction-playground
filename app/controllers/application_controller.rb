@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  # This would be where you would define a real method that would yield
+  # an object that would return
+  # 
+  def current_user
+    @current_user ||= User.find_by_name 'joe'
+  end
 end
