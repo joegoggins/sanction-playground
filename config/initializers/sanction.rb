@@ -12,9 +12,17 @@ Sanction.configure do |config|
   # Define your roles
   # Note: :can_view_roles? is a sanction_ui permission
   #
-  config.role :super_user, User => :global, :having => [:can_view_roles, :can_TODO_sanction_ui]
+  sanction_ui_roles = [
+    :can_view_sui_index,
+    :can_view_sui_roles_index,
+    :can_add_role,
+    :can_remove_role,
+    :can_describe_role
+  ]    
+    
+  config.role :super_user, User => :global, :having => sanction_ui_roles
   config.role :reader, User => Magazine, :having => [:can_read]
-  config.role :editor, User => Magazine, :having => [:can_edit],  :includes => [:reader]
+  config.role :editor, User => [Magazine,User], :having => [:can_edit],  :includes => [:reader]
   config.role :writer, User => Magazine, :having => [:can_write], :includes => [:reader]
   config.role :owner,  User => Magazine, :includes => [:editor, :writer]
   config.role :boss,   User => [Magazine,User]
