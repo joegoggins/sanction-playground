@@ -5,8 +5,18 @@ Initially this rails app will be a bit ugly, but potentially could eventually be
 = Setup
 == Get it
   git clone git@github.com:joegoggins/sanction-playground.git
+
   cd sanction-playground
+
   git submodule update --init
+
+  # checkout a master branch for the plugins (by default is no branch)
+  cd vendor/plugins/sanction
+  git checkout master
+  cd ../../..
+  cd vendor/plugins/sanction_ui
+  git checkout master
+
 
 == Bomb and Rebuild databases
   rake app:setup # Assumes MySQL with root user see database.yml to details
