@@ -5,8 +5,18 @@ Initially this rails app will be a bit ugly, but potentially could eventually be
 = Setup
 == Get it
   git clone git@github.com:joegoggins/sanction-playground.git
+
   cd sanction-playground
+
   git submodule update --init
+
+  # checkout a master branch for the plugins (by default is no branch)
+  cd vendor/plugins/sanction
+  git checkout master
+  cd ../../..
+  cd vendor/plugins/sanction_ui
+  git checkout master
+
 
 == Bomb and Rebuild databases
   rake app:setup # Assumes MySQL with root user see database.yml to details
@@ -14,6 +24,17 @@ Initially this rails app will be a bit ugly, but potentially could eventually be
 == Fire up a server (or use passenger er whatevs)
   script/server
 
-= Develop
+== Develop
   `rake app:setup` should always be run after git pull, it destroys and rebuilds all db related things
-  `rake app:test` NOT DONE--will invoke all tests in the two plugins
+
+== Test
+  Run sanction tests
+  cd vendor/plugins/sanction && rake test
+
+  No empirical tests for sanction_ui yet
+
+== Nuances
+  User class utilizes string primary key's instead of integers to illustrate that
+    script/generate sanction string_ids=true
+  still produces working plugins in this case.  Other demo classes use integers
+  

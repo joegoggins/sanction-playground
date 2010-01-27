@@ -1,6 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
-    create_table :users do |t|
+    create_table :users, :id => false do |t|
+      t.string :id, :limit => 32
       t.string :name
 
       t.timestamps
