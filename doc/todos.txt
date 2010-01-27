@@ -1,13 +1,12 @@
-POMODOROS
-
-if you implement a method in your controller called current_user that 
-
-if current_user.can_revoke? :super_user
-if current_user.can_revoke? :super_user
-
-* links workn 1
-* form basics working 2
-* form jquery simple stuff
-
-DISTRACTIONS:
-* mighty mouse apps from kyle
+------------
+Notes to Matt and Pete:
+* null on principal_id is legit eh, do you have a use case for that, something like:
+    Magazine.authorize :editor, User
+  is legit and creates a role row with both _id cols as null...does it mean:
+    All Users have the editor role over all Magazines?  if so, there is a bug:
+		>> u
+		=> #<User id: "00633107804", name: "joe", created_at: "2010-01-26 23:11:58", updated_at: "2010-01-26 23:11:58">
+		>> u.has? :editor
+		=> false
+		
+	Is there a different way to make sense of this?
