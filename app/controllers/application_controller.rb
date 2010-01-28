@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   # This would be where you would define a real method that would yield
   # an object that would return
   # 
-  def current_user
-    @current_user ||= User.find_by_name 'joe'
+  def current_principal
+    @current_principal ||= User.find_by_name 'joe'
   end
+  helper_method :current_principal
 end
