@@ -17,6 +17,7 @@ Sanction.configure do |config|
               :purpose => "to manage who can access what in the application"    
 
   # For playing with :and constraints
+  config.role :global_bypass, User => :global, :and => [:is_false_check?]
   config.role :special_reader, User => Magazine, :having => [:can_read], :and => :the_true_check?
   config.role :special_writer, User => Magazine, :having => [:can_read], :and => [:the_false_check?], :includes => [:special_reader]
   config.role :special_editor, User => Magazine, :having => [:can_read], :includes => [:special_writer]
