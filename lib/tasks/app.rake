@@ -30,6 +30,7 @@ namespace :app do
     # joe is a super user
     @joe = User.find_by_name 'joe'
     @joe.grant :super_user
+    @joe.grant :permission_manager
     
     # matt is the boss of joe
     @matt = User.find_by_name 'matt'
