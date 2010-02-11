@@ -18,7 +18,7 @@ Sanction.configure do |config|
 
   # For playing with :and constraints
   config.role :special_reader, User => Magazine, :having => [:can_read], :and => :the_true_check?
-  config.role :special_writer, User => Magazine, :having => [:can_read], :includes => [:special_reader]
+  config.role :special_writer, User => Magazine, :having => [:can_read], :and => [:the_false_check?], :includes => [:special_reader]
   config.role :special_editor, User => Magazine, :having => [:can_read], :includes => [:special_writer]
               
   config.role :super_user, User => :global,
