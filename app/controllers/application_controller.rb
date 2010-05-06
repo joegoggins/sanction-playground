@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   # an object that would return
   # 
   def current_principal
-    @current_principal ||= User.find_by_name 'joe'
+    @current_principal ||= User.find(:first, :conditions => ["name = ?",'joe'], :include => :principal_roles)
   end
   helper_method :current_principal
 end
