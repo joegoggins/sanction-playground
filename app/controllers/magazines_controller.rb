@@ -2,6 +2,7 @@ class MagazinesController < ApplicationController
   # GET /magazines
   # GET /magazines.xml
   def index
+    return false if redirect_to_access_denied_if_cannot(:anything, Magazine)
     @magazines = Magazine.all
 
     respond_to do |format|
