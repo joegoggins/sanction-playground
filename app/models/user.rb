@@ -3,4 +3,9 @@ class User < ActiveRecord::Base
     puts "HERE"
     false
   end
+  
+  def self.n(name)
+    self.find(:first,:conditions => ["name = ?",name])
+  end
+    
 end
