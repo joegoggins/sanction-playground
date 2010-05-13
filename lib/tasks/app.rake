@@ -8,7 +8,7 @@ namespace :app do
     puts `rake db:fixtures:load` # loads users and magazines
     puts `rake app:load_permission_fixtures`
     puts `rake db:test:clone`
-    puts "Be weary of the weirdness of committing and pushing with two submodules.  (talk to Joe if you begin to hate life because of it.)"
+    puts "Be weary of the weirdness of committing and pushing with two submodules.  (commit to the sub-mods, then back out to the playground root, and commit the commit ids the submodules point at...)"
     puts "You should be good to go at localhost:3000 (after firin up a server)"    
   end
   desc "drop all dbs reffed in database.yml without being stupid (and throwing an error)"

@@ -1,4 +1,5 @@
 = Welcome to the Sanction Playground
+
 A Rails app designed to facilitate development of sanction_ui and sanction rails plugins.
 Also functions as a decent reference example of how sanction + sanction_ui work in practice.
 
@@ -16,7 +17,6 @@ Also functions as a decent reference example of how sanction + sanction_ui work 
   cd ../../..
   cd vendor/plugins/sanction_ui
   git checkout master
-
 
 == Bomb and Rebuild databases
   rake app:setup # Assumes MySQL with root user see database.yml to details
